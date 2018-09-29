@@ -12,3 +12,9 @@ variables:
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
+
+- script: docker login paradisepdreg.azurecr.io -u ParadisePDReg -p w9/8aFlFAk6iara5JSQW32OKHFJ0z4PI
+  displayName: 'Login'
+
+- script: docker push $(imageName)
+  displayName: 'Push to registy'
